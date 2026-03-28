@@ -35,8 +35,58 @@ Distinct Customers =
 DISTINCTCOUNT ( fact_sales[customer_id] )
 ```
 
+## returns
+
+a return is a row with negative quantity (online-retail convention).
+
+```dax
+Returned Quantity =
+CALCULATE (
+    SUMX ( fact_sales, -fact_sales[quantity] ),
+    fact_sales[quantity] < 0
+)
+```
+
+```dax
+Return Value =
+CALCULATE (
+    SUMX ( fact_sales, -fact_sales[quantity] * fact_sales[unit_price] ),
+    fact_sales[quantity] < 0
+)
+```
+
+```dax
+Return Rate % =
+DIVIDE ( [Returned Quantity], [Total Quantity] + [Returned Quantity] )
+```
+
+## profit
+
+needs `unit_cost` from dim_product (RELATED).
+
+```dax
+COGS =
+SUMX (
+    fact_sales,
+    fact_sales[quantity] * RELATED ( dim_product[unit_cost] )
+)
+```
+
+```dax
+Gross Profit =
+[Net Sales] - [COGS]
+```
+
+```dax
+Gross Margin % =
+DIVIDE ( [Gross Profit], [Net Sales] )
+```
+
+```dax
+AOV =
+DIVIDE ( [Net Sales], [Distinct Invoices] )
+```
+
 ## todo
-- returns / return rate
-- profit (need RELATED dim_product[unit_cost])
 - time intelligence
 - rank / top N
