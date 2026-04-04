@@ -87,6 +87,42 @@ AOV =
 DIVIDE ( [Net Sales], [Distinct Invoices] )
 ```
 
+## time intelligence
+
+dim_date must be marked as a date table (Modeling -> Mark as date table -> date column).
+
+```dax
+Net Sales LY =
+CALCULATE ( [Net Sales], SAMEPERIODLASTYEAR ( dim_date[date] ) )
+```
+
+```dax
+Net Sales YoY =
+[Net Sales] - [Net Sales LY]
+```
+
+```dax
+Net Sales YoY % =
+DIVIDE ( [Net Sales YoY], [Net Sales LY] )
+```
+
+```dax
+Net Sales YTD =
+TOTALYTD ( [Net Sales], dim_date[date] )
+```
+
+```dax
+Net Sales MTD =
+TOTALMTD ( [Net Sales], dim_date[date] )
+```
+
+```dax
+Net Sales 3M Rolling =
+CALCULATE (
+    [Net Sales],
+    DATESINPERIOD ( dim_date[date], MAX ( dim_date[date] ), -3, MONTH )
+)
+```
+
 ## todo
-- time intelligence
 - rank / top N
