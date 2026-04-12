@@ -124,5 +124,35 @@ CALCULATE (
 )
 ```
 
+## ranking
+
+```dax
+Product Rank by Sales =
+RANKX (
+    ALL ( dim_product[product_name] ),
+    [Net Sales],
+    ,
+    DESC,
+    DENSE
+)
+```
+
+```dax
+Top 10 Products Sales =
+IF ( [Product Rank by Sales] <= 10, [Net Sales], BLANK () )
+```
+
+```dax
+Customer Rank =
+RANKX (
+    ALL ( dim_customer[customer_id] ),
+    [Net Sales],
+    ,
+    DESC,
+    DENSE
+)
+```
+
 ## todo
-- rank / top N
+- pbix file + screenshots
+- maybe a what-if parameter for discount %
