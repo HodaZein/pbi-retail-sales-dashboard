@@ -156,3 +156,12 @@ RANKX (
 ## todo
 - pbix file + screenshots
 - maybe a what-if parameter for discount %
+
+## scratch - discount what-if (wip, not sure about this yet)
+
+```dax
+Discount % = SELECTEDVALUE ( 'Discount'[Discount %], 0 )
+
+Net Sales w Discount =
+[Net Sales] * ( 1 - [Discount %] / 100 )
+```
