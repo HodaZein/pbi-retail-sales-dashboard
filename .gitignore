@@ -5,3 +5,4 @@ __pycache__/
 # pbix locks/temp on windows
 ~$*
 *.tmp
+docs/README.md

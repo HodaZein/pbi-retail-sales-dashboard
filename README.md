@@ -2,7 +2,7 @@
 
 power bi dashboard on a small synthetic retail dataset (online-retail-style). practising end-to-end: Power Query for ingest, star schema model, DAX measures, then a multi-page report.
 
-i'm still learning power bi (going through the microsoft fabric / pl-300 path), so the DAX is intentionally not the fanciest - readable over clever. this repo is the source data + the M + the DAX in plain text so it's reviewable without opening the .pbix.
+This repo is the source data + the M + the DAX in plain text so it's reviewable without opening the .pbix.
 
 ## what's here
 
@@ -17,7 +17,7 @@ i'm still learning power bi (going through the microsoft fabric / pl-300 path), 
 
 1. **Overview** - KPI cards (Net Sales, Gross Margin %, AOV, Distinct Customers), monthly trend with YoY, top 10 products bar
 2. **Geography** - revenue by region/country, return rate by country, world map visual
-3. **Customers** - new vs returning, RFM-lite segmentation, top customers table with conditional formatting
+3. **Customers** - new vs returning, top customers table with conditional formatting
 
 slicers: year, quarter, region, product category.
 
