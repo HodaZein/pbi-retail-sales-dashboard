@@ -32,9 +32,9 @@ slicers: year, quarter, region, product category.
 - [x] data model + star schema decided
 - [x] Power Query transforms drafted
 - [x] core DAX measures written + documented
-- [ ] build the pbix on windows, take screenshots
-- [ ] publish to web (free) and add link
-- [ ] add the customer/RFM page
+- [x] build the pbix on windows, take screenshots
+- [ ] publish to web and add link 
+
 
 ## related
 the same dataset in pure SQL + pandas: https://github.com/HodaZein/retail-sales-sql-analysis (with a [live eda report](https://hodazein.github.io/retail-sales-sql-analysis/))
